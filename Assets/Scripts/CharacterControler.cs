@@ -10,9 +10,10 @@ public class CharacterControler : MonoBehaviour
     [SerializeField]private float jumpHeight = 8.5f;
     private Rigidbody2D _playerRigidbody;
 
-    [SerializeField] private LayerMask groundMask;
+    [SerializeField]private LayerMask groundMask;
     [SerializeField]private Collider2D rightWallDetector;
     [SerializeField]private Collider2D leftWallDetector;
+    [SerializeField]private Collider2D ceilingDetector;
     [SerializeField]private Transform groundDetector;
     [SerializeField]private float jumpTime = 0.5f;
     float jumpTimeCounter;
@@ -53,7 +54,7 @@ public class CharacterControler : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.Space) && _jumped)
         {
-            if(jumpTimeCounter > 0)
+            if(jumpTimeCounter > 0 && !ceilingDetector.IsTouchingLayers(groundMask))
             {
                 _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x, jumpHeight);
                 jumpTimeCounter -= Time.deltaTime;
