@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3944e094399b2efd787e61c05f507bf0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5055010457b550cebca1990ada67dc1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3402,6 +3402,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 228682169}
     m_Modifications:
     - target: {fileID: 4977185005085971777, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 228682170}
+    - target: {fileID: 4977185005085971777, guid: 66e138e219134ca41afc3a0179207348, type: 3}
       propertyPath: currentObject
       value: 
       objectReference: {fileID: 228682168}
@@ -3413,6 +3417,10 @@ PrefabInstance:
       propertyPath: backBehaviour
       value: 
       objectReference: {fileID: 1379837921}
+    - target: {fileID: 7210222864145378346, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 228682170}
     - target: {fileID: 8203997792641484828, guid: 66e138e219134ca41afc3a0179207348, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
