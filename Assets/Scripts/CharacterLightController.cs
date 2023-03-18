@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterLightController : MonoBehaviour
@@ -12,7 +15,7 @@ public class CharacterLightController : MonoBehaviour
     public static Color CurrentColor;
 
     private float _lerpTemp = 0f;
-    private const float _lerpTime = 0.1f;
+    private const float LerpTime = 0.1f;
 
     // Update is called once per frame
     private void Update()
@@ -29,14 +32,22 @@ public class CharacterLightController : MonoBehaviour
             _previousColorIdx = currentColor;
             currentColor++;
         }
-        currentColor %= Colors.Length;
-        if(currentColor < 0)
-        {
-            currentColor += Colors.Length - 1;
-        }
+        currentColor = ProperMod(currentColor, Colors.Length);
 
-        _lerpTemp += Time.deltaTime / _lerpTime;
+        _lerpTemp += Time.deltaTime / LerpTime;
         CurrentColor = Color.Lerp(Colors[_previousColorIdx], Colors[currentColor], _lerpTemp);
         spriteRef.color = CurrentColor;
+    }
+
+    /// <summary>
+    /// Actually computes a modulo operation, but always returns a positive result.
+    /// </summary>
+    /// <remarks>C#'s '%' operator is not modulo, but remainder</remarks>
+    /// <param name="x">Number to mod</param>
+    /// <param name="m">Modulus</param>
+    /// <returns>Result</returns>
+    private static int ProperMod(int x, int m)
+    {
+        return (x % m + m) % m;
     }
 }
