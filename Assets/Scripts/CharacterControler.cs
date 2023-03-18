@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class CharacterControler : MonoBehaviour
 {
     [SerializeField] private float _playerSpeed = 10;
-    [SerializeField]private float jumpHeight = 10;
+    [SerializeField]private float jumpHeight = 8.5f;
     private Rigidbody2D _playerRigidbody;
 
     private LayerMask groundMask = ~1 << 3;
+
+    public Animator animator;
 
 
     private void Start()
@@ -20,13 +22,20 @@ public class CharacterControler : MonoBehaviour
         {
             Debug.LogError("No rigidbody on player");
         }
+        if (animator == null)
+        {
+            Debug.LogError("No animator chosen");
+        }
     }
 
     void Update()
     {
         Move();
 
-        if (Input.GetKeyDown("space") && Grounded())
+        bool isGround = Grounded();
+        animator.SetBool("Jumping", !isGround);
+
+        if (Input.GetKeyDown("space") && isGround)
         {
             Jump();
         }
@@ -36,6 +45,7 @@ public class CharacterControler : MonoBehaviour
     {
         var horizontalInput = Input.GetAxisRaw("Horizontal");
         _playerRigidbody.velocity = new Vector2(horizontalInput * _playerSpeed, _playerRigidbody.velocity.y);
+        animator.SetBool("Moving", horizontalInput != 0);
     }
 
     private void Jump()
