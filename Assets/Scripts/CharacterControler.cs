@@ -10,13 +10,22 @@ public class CharacterControler : MonoBehaviour
     [SerializeField]private float jumpHeight = 8.5f;
     private Rigidbody2D _playerRigidbody;
 
-    private LayerMask groundMask = ~1 << 3;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField]private Collider2D rightWallDetector;
+    [SerializeField]private Collider2D leftWallDetector;
+    [SerializeField]private Transform groundDetector;
+    [SerializeField]private float jumpTime = 0.5f;
+    float jumpTimeCounter;
+    private bool _jumped;
 
     public Animator animator;
+    
+    private int _wallIndicator = 0;
 
 
     private void Start()
     {
+        jumpTimeCounter = jumpTime;
         _playerRigidbody = GetComponent<Rigidbody2D>();
         if (_playerRigidbody == null)
         {
@@ -35,31 +44,71 @@ public class CharacterControler : MonoBehaviour
         bool isGround = Grounded();
         animator.SetBool("Jumping", !isGround);
 
-        if (Input.GetKeyDown("space") && isGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
-            Jump();
+            _jumped = true;
+            jumpTimeCounter = jumpTime;
+            _playerRigidbody.velocity = Vector2.up * jumpHeight;
+            
+        }
+        if(Input.GetKey(KeyCode.Space) && _jumped)
+        {
+            if(jumpTimeCounter > 0)
+            {
+                _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x, jumpHeight);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                _jumped = false;
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            _jumped = false;
+        }
+        
+        if (rightWallDetector.IsTouchingLayers(groundMask))
+        {
+            _wallIndicator = 1;
+        }
+        else if(leftWallDetector.IsTouchingLayers(groundMask))
+        {
+            _wallIndicator = -1;
+        }
+        else
+        {
+            _wallIndicator = 0;
         }
     }
 
     private void Move()
     {
         var horizontalInput = Input.GetAxisRaw("Horizontal");
-        _playerRigidbody.velocity = new Vector2(horizontalInput * _playerSpeed, _playerRigidbody.velocity.y);
-        animator.SetBool("Moving", horizontalInput != 0);
-    }
-
-    private void Jump()
-    {
-        _playerRigidbody.velocity = new Vector2(0, jumpHeight);
+        if (_wallIndicator * transform.localScale.x == horizontalInput)
+        {
+            
+            _playerRigidbody.velocity = new Vector2(0, _playerRigidbody.velocity.y);
+            
+            animator.SetBool("Moving", false);
+        }
+        else
+        {
+            _playerRigidbody.velocity = new Vector2(horizontalInput * _playerSpeed, _playerRigidbody.velocity.y);
+            animator.SetBool("Moving", horizontalInput != 0);
+        }
     }
 
     private bool Grounded()
     {
-        
-        var position = new Vector3(transform.position.x, transform.position.y - 1.1f, transform.position.z);
-        var checkGround = Physics2D.Raycast(position, Vector2.down, 0.1f);
-        //Debug.Log(checkGround.collider.tag);
-        Debug.DrawLine(position, new Vector3(position.x, position.y - .1f, position.z), Color.black);
-        return checkGround.collider != null && checkGround.collider.CompareTag("Ground");
+        return Physics2D.OverlapCircle(groundDetector.position, 0.1f, groundMask);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Environment"))
+        {
+            Debug.Log("wall");
+        }
     }
 }
