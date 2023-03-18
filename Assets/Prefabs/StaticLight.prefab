@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8889062538280432441}
   - component: {fileID: 8889062538280432443}
-  - component: {fileID: 3865349687265966234}
   - component: {fileID: 1077682828}
   - component: {fileID: 110819009}
   m_Layer: 2
-  m_Name: EffectLight
+  m_Name: StaticLight
   m_TagString: EffectLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,21 +50,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3865349687265966234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8889062538280432438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d657bc8cacabd984d89d9cc4e8902c84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraRef: {fileID: 0}
-  spriteRef: {fileID: 1077682828}
-  lightRef: {fileID: 0}
 --- !u!212 &1077682828
 SpriteRenderer:
   m_ObjectHideFlags: 0
