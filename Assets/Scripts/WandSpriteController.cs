@@ -14,6 +14,9 @@ public class WandSpriteController : MonoBehaviour
 
     void Update()
     {
+        if(Time.timeScale == 0f)
+            return;
+
         _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDir = _mousePos - new Vector2(_transform.position.x, _transform.position.y);
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;

@@ -7,6 +7,7 @@ public class CharacterSpriteController : MonoBehaviour
     private Transform _transform;
     public Camera cam;
     private Vector2 _mousePos;
+    public MenuManager menu;
     void Start()
     {
         _transform = GetComponent<Transform>();
@@ -14,11 +15,22 @@ public class CharacterSpriteController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!menu.is_paused)
+                menu.Pause();
+            else
+                menu.Resume();
+        }
+        if(Time.timeScale == 0f)
+            return;
+
         _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         if (_mousePos.x > _transform.position.x)
             _transform.localScale = new Vector3(1f, 1f, 1f);
         else
             _transform.localScale = new Vector3(-1f, 1f, 1f);
+
     }
 }

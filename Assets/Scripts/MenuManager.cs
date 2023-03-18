@@ -5,9 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public bool is_paused = false;
+    public Animator player_animator;
     public void Play(){
-        Debug.Log("Playing");
+        Time.timeScale = 1f;
         SceneManager.LoadScene(1);
+    }
+    public void Pause(){
+        Time.timeScale = 0f;
+        is_paused = true;
+        player_animator.SetBool("Paused", true);
+        gameObject.SetActive(true);
+    }
+    public void Resume(){
+        Time.timeScale = 1f;
+        is_paused = false;
+        player_animator.SetBool("Paused", false);
+        gameObject.SetActive(false);
+    }
+    public void Menu(){
+        SceneManager.LoadScene(0);
     }
     public void Quit(){
         Debug.Log("Quitting");
