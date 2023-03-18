@@ -15,6 +15,6 @@ public class EffectLight : MonoBehaviour
         // Stick the position to the mouse cursor
         Vector2 mousePosition = cameraRef.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
-        spriteRef.color = lightRef.Colors[lightRef.currentColor];
+        spriteRef.color = CharacterLightController.CurrentColor;
     }
 }

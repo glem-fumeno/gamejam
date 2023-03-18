@@ -5,7 +5,7 @@ public class SampleColorEnabledController : MonoBehaviour
     public ColorDetector colorDetector;
 
     private SpriteRenderer[] _spriteRenderers;
-    
+
     private void Start()
     {
         _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
