@@ -199,7 +199,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -3710,7 +3710,7 @@ PrefabInstance:
     - target: {fileID: 1077682828, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ed5e16d9fea26d041874e48847e2c3b0, type: 3}
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
     - target: {fileID: 1077682828, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -3741,15 +3741,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889062538280432441, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8889062538280432441, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8889062538280432441, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8889062538280432441, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3793,7 +3793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889062538280432443, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_Radius
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8889062538280432443, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: m_Enabled
