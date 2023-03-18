@@ -3,7 +3,6 @@ using UnityEngine;
 public class EffectLight : MonoBehaviour
 {
     // public Light lightRef;
-    public Collider2D colliderRef;
     public Camera cameraRef;
     public SpriteRenderer spriteRef;
     public CharacterLightController lightRef;

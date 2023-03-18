@@ -8,6 +8,8 @@ public class CharacterLightController : MonoBehaviour
     public int currentColor = 0;
     public SpriteRenderer spriteRef;
 
+    public static Color CurrentColor;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +22,6 @@ public class CharacterLightController : MonoBehaviour
             currentColor += Colors.Length - 1;
 
         spriteRef.color = Colors[currentColor];
-
+        CurrentColor = Colors[currentColor];
     }
 }
