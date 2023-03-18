@@ -11,6 +11,8 @@ public class EffectLight : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if(Time.timeScale == 0f)
+            return;
         // Stick the position to the mouse cursor
         Vector2 mousePosition = cameraRef.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
