@@ -20,6 +20,7 @@ public class CharacterControler : MonoBehaviour
     private bool _jumped;
 
     public Animator animator;
+    public KeyMapping keyMapping;
     
     private int _wallIndicator = 0;
 
@@ -45,14 +46,13 @@ public class CharacterControler : MonoBehaviour
         bool isGround = Grounded();
         animator.SetBool("Jumping", !isGround);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (Input.GetKeyDown(keyMapping.getKeyCode("Jump")) && isGround)
         {
             _jumped = true;
             jumpTimeCounter = jumpTime;
             _playerRigidbody.velocity = Vector2.up * jumpHeight;
-            
         }
-        if(Input.GetKey(KeyCode.Space) && _jumped)
+        if(Input.GetKey(keyMapping.getKeyCode("Jump")) && _jumped)
         {
             if(jumpTimeCounter > 0 && !ceilingDetector.IsTouchingLayers(groundMask))
             {
@@ -64,7 +64,7 @@ public class CharacterControler : MonoBehaviour
                 _jumped = false;
             }
         }
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(Input.GetKeyUp(keyMapping.getKeyCode("Jump")))
         {
             _jumped = false;
         }
@@ -85,7 +85,9 @@ public class CharacterControler : MonoBehaviour
 
     private void Move()
     {
-        var horizontalInput = Input.GetAxisRaw("Horizontal");
+        int left = Input.GetKey(keyMapping.getKeyCode("Left")) ? 1 : 0;
+        int right = Input.GetKey(keyMapping.getKeyCode("Right")) ? 1 : 0;
+        float horizontalInput = right - left;
         if (_wallIndicator * transform.localScale.x == horizontalInput)
         {
             

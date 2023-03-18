@@ -8,6 +8,7 @@ public class BackBehaviour : MonoBehaviour
     public GameObject previousObject;
     public MenuManager menuManager;
     public void goBack(){
+        menuManager.block_resume = false;
         previousObject.SetActive(true);
         currentObject.SetActive(false);
     }
@@ -17,7 +18,6 @@ public class BackBehaviour : MonoBehaviour
             menuManager.block_resume = true;
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            menuManager.block_resume = false;
             goBack();
         }
     }

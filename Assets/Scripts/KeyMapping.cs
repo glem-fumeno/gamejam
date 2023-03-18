@@ -80,6 +80,15 @@ public class KeyMapping : MonoBehaviour
         keys[key_index].key_text.text = "";
         backBehaviour.enabled = false;
     }
+    public KeyCode getKeyCode(string behaviour)
+    {
+        foreach (Key key in keys)
+        {
+            if(key.key_name == behaviour)
+                return key.key_code;
+        }
+        return KeyCode.None;
+    }
     private void Update() {
         if(key_index >= 0)
         {
@@ -94,7 +103,7 @@ public class KeyMapping : MonoBehaviour
             {
                 if (!Input.GetKey(kcode.Key))
                     continue;
-                key.key_code = kcode.Key;
+                keys[key_index].key_code = kcode.Key;
                 key.key_text.text = kcode.Value;
                 key_index = -1;
                 backBehaviour.enabled = true;

@@ -322,6 +322,7 @@ MonoBehaviour:
   groundDetector: {fileID: 1488075611}
   jumpTime: 0.3
   animator: {fileID: 769162800}
+  keyMapping: {fileID: 1002722171}
 --- !u!114 &101903907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,6 +1427,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1002722171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5427084067224009700, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+  m_PrefabInstance: {fileID: 8203997792681881170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d148615ba454f2639467232d7b6a41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1072516859
