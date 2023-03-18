@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,6 +47,45 @@ public class SettingsManager : MonoBehaviour
     public void ToggleFullscreen()
     {
         Fullscreen = !Fullscreen;
+        onChange();
+    }
+
+    private class Settings
+    {
+        public bool SoundActive;
+        public bool MusicActive;
+        public bool Fullscreen;
+        public float SoundVolume;
+        public float MusicVolume;
+    }
+
+    private const string SettingsFile = "settings.json";
+
+    public void Persist()
+    {
+        var settings = new Settings
+        {
+            SoundActive = SoundActive,
+            MusicActive = MusicActive,
+            Fullscreen = Fullscreen,
+            SoundVolume = SoundScrollbar.value,
+            MusicVolume = MusicScrollbar.value
+        };
+        SaveManager.Save(SettingsFile, settings);
+    }
+
+    private void Awake()
+    {
+        var settings = SaveManager.Load<Settings>(SettingsFile);
+        if (settings == null)
+        {
+            return;
+        }
+        SoundActive = settings.SoundActive;
+        MusicActive = settings.MusicActive;
+        Fullscreen = settings.Fullscreen;
+        SoundScrollbar.value = settings.SoundVolume;
+        MusicScrollbar.value = settings.MusicVolume;
         onChange();
     }
 }
