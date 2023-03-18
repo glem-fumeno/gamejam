@@ -518,6 +518,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.03, y: 1.0371614}
   m_EdgeRadius: 0
+--- !u!114 &553707272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7210222864145378346, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+  m_PrefabInstance: {fileID: 8203997792681881170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215f46281e39119ffb4a3bd3d1b63db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &558274664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,6 +1711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_paused: 0
+  block_resume: 0
   player_animator: {fileID: 769162800}
 --- !u!1 &1147235640
 GameObject:
@@ -3515,6 +3527,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1138160614}
     m_Modifications:
+    - target: {fileID: 2527168650401063698, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977185005085971777, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 1138160617}
+    - target: {fileID: 4977185005085971777, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: currentObject
+      value: 
+      objectReference: {fileID: 1823998247}
+    - target: {fileID: 4977185005085971777, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: previousObject
+      value: 
+      objectReference: {fileID: 1097502572}
+    - target: {fileID: 5427084067224009700, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: backBehaviour
+      value: 
+      objectReference: {fileID: 553707272}
+    - target: {fileID: 7210222864145378346, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 1138160617}
     - target: {fileID: 8203997792641484828, guid: 66e138e219134ca41afc3a0179207348, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -3530,7 +3566,11 @@ PrefabInstance:
     - target: {fileID: 8203997792651347199, guid: 66e138e219134ca41afc3a0179207348, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1097502572}
+      objectReference: {fileID: 8203997792681881171}
+    - target: {fileID: 8203997792651347199, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: goBack
+      objectReference: {fileID: 0}
     - target: {fileID: 8203997794108884590, guid: 66e138e219134ca41afc3a0179207348, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -3551,6 +3591,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8203997794216472441, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: Menu
+      value: 
+      objectReference: {fileID: 1138160617}
     - target: {fileID: 8203997794216472442, guid: 66e138e219134ca41afc3a0179207348, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3637,6 +3681,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+--- !u!114 &8203997792681881171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4977185005085971777, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+  m_PrefabInstance: {fileID: 8203997792681881170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215f46281e39119ffb4a3bd3d1b63db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8889062539101279473
 PrefabInstance:
   m_ObjectHideFlags: 0

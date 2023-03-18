@@ -21,6 +21,7 @@ public class SettingsManager : MonoBehaviour
     public TMPro.TextMeshProUGUI MusicValue;
     public Image FullscreenButton;
     public Sprite Checkmark;
+    public MenuManager Menu;
 
     public void onChange(){
         MusicButton.sprite = MusicActive ? MusicOn : MusicOff;

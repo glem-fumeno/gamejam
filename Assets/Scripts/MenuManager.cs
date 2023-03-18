@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public bool is_paused = false;
+    public bool block_resume = false;
     public Animator player_animator;
     public void Play(){
         Time.timeScale = 1f;
@@ -18,6 +19,8 @@ public class MenuManager : MonoBehaviour
         gameObject.SetActive(true);
     }
     public void Resume(){
+        if(block_resume)
+            return;
         Time.timeScale = 1f;
         is_paused = false;
         player_animator.SetBool("Paused", false);
