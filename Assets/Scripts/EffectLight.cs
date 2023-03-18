@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectLight : MonoBehaviour
@@ -8,6 +9,10 @@ public class EffectLight : MonoBehaviour
     public SpriteRenderer spriteRef;
     public CharacterLightController lightRef;
     public GameObject lightObject;
+    private List<GameObject> _staticLigts = new List<GameObject>();
+
+    [SerializeField] private int maxLights = 2;
+    private int _currentLights = 0;
 
     // Update is called once per frame
     private void Start()
@@ -27,10 +32,25 @@ public class EffectLight : MonoBehaviour
             spriteRef.color = CharacterLightController.CurrentColor;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _currentLights < maxLights)
         {
             var light = Instantiate(lightObject, transform.position, Quaternion.identity);
             light.GetComponent<SpriteRenderer>().color = CharacterLightController.CurrentColor;
+            _staticLigts.Add(light); 
+            _currentLights++;
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Right click");
+            for (int i = 0; i < _currentLights; i++)
+            {
+                Debug.Log("Destroying light" + i);
+                Destroy(_staticLigts[i]);
+            }
+            _staticLigts.Clear();
+            _currentLights = 0;
+        }
+        
     }
 }
