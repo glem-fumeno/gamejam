@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    private Vector2 startPosition;
+    [HideInInspector]public Vector2 startPosition;
 
-    private Vector2 endPosition;
+    [HideInInspector]public Vector2 endPosition;
     public float movingSpeed = 10f;
     private float distance = 0f;
     public float offset = 0f;

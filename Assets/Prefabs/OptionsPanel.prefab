@@ -1702,7 +1702,7 @@ GameObject:
   - component: {fileID: 5427084067224009700}
   m_Layer: 5
   m_Name: Mapping
-  m_TagString: Untagged
+  m_TagString: Mapping
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

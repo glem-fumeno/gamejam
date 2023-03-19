@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Warmth.unity
     guid: 4286389b7d05cc018ba0df0290ae768b
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 5bd35f1306d6fb52daeefed1883aca35
   m_configObjects: {}
