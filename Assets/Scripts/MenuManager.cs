@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public Animator player_animator;
     public void Play(){
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("StartRoom");
     }
     public void Pause(){
         Time.timeScale = 0f;

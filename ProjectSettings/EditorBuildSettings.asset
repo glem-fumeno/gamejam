@@ -9,6 +9,57 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Levels.unity
-    guid: 8bea9f43dc986f79f8ca09ec579be0a4
+    path: Assets/Scenes/Game.unity
+    guid: 428a0c702bc21c6d29f6208532b567f2
+  - enabled: 1
+    path: Assets/Scenes/Levels/StartRoom.unity
+    guid: 6d86971082f1b0699a8876bee25a9ff6
+  - enabled: 1
+    path: Assets/Scenes/Levels/BlueWand.unity
+    guid: 7ccfebda69e6de585a059f3400c9ac86
+  - enabled: 1
+    path: Assets/Scenes/Levels/City.unity
+    guid: 287317a820a21be509b8c6af979420d0
+  - enabled: 1
+    path: Assets/Scenes/Levels/CityOutskirts.unity
+    guid: 39c9d092faba88c76b51c5419c696cbc
+  - enabled: 1
+    path: Assets/Scenes/Levels/CombiningTutorial.unity
+    guid: e29790c623ebb60cd9f2cf670bce074b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Desert.unity
+    guid: a8d1eaf06075c4161bd022c19f2d39ad
+  - enabled: 1
+    path: Assets/Scenes/Levels/DesertBoss.unity
+    guid: e954c04f5916d32f8a5841403ebca4b2
+  - enabled: 1
+    path: Assets/Scenes/Levels/DesertEntrance.unity
+    guid: df55723511ca8464db72bf508085b906
+  - enabled: 1
+    path: Assets/Scenes/Levels/FinalBoss.unity
+    guid: f429db37d4e6f86a88348322a0af1f99
+  - enabled: 1
+    path: Assets/Scenes/Levels/ForrestBoss.unity
+    guid: fe0b33be5933fd5e4aa773e9e2403e18
+  - enabled: 1
+    path: Assets/Scenes/Levels/ForrestEntrance.unity
+    guid: b55c68e356e555ed9b71bfb67eafe477
+  - enabled: 1
+    path: Assets/Scenes/Levels/GreenWand.unity
+    guid: 4552d06c61f91e902a7986785123fe3f
+  - enabled: 1
+    path: Assets/Scenes/Levels/MovementBasics.unity
+    guid: ffc32ab8a9ab839ca9c1eee9ea417bf6
+  - enabled: 1
+    path: Assets/Scenes/Levels/RedWand.unity
+    guid: 4a3ed3697aa24d1869ddddf4fc60239f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sea.unity
+    guid: e1b6d9302b65cf344bdb488296ab0a28
+  - enabled: 1
+    path: Assets/Scenes/Levels/UV.unity
+    guid: 2b6dfa3484e6d9ddf874e044d726296a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Warmth.unity
+    guid: 4286389b7d05cc018ba0df0290ae768b
   m_configObjects: {}

@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class CharacterLightController : MonoBehaviour
 {
+    public Color[] BaseColors;
     public Color[] Colors;
     public int currentColor = 0;
     private int _previousColorIdx = 0;
@@ -20,6 +21,11 @@ public class CharacterLightController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if(Colors.Length == 0)
+        {
+            spriteRef.color = Color.white;
+            return;
+        }
         if(Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             _lerpTemp = 0f;
@@ -38,14 +44,11 @@ public class CharacterLightController : MonoBehaviour
         CurrentColor = Color.Lerp(Colors[_previousColorIdx], Colors[currentColor], _lerpTemp);
         spriteRef.color = CurrentColor;
     }
+    public void AddColor(int index){
+        Array.Resize(ref Colors, Colors.Length + 1);
+        Colors[Colors.Length - 1] = BaseColors[index];
+    }
 
-    /// <summary>
-    /// Actually computes a modulo operation, but always returns a positive result.
-    /// </summary>
-    /// <remarks>C#'s '%' operator is not modulo, but remainder</remarks>
-    /// <param name="x">Number to mod</param>
-    /// <param name="m">Modulus</param>
-    /// <returns>Result</returns>
     private static int ProperMod(int x, int m)
     {
         return (x % m + m) % m;
