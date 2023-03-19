@@ -14,7 +14,7 @@ public class Interaction : MonoBehaviour
     private Notification notification;
     void Start(){
         player = Resources.FindObjectsOfTypeAll<CharacterLightController>()[0];
-        lightbulb = Resources.FindObjectsOfTypeAll<EffectLight>()[0];
+        lightbulb = GameObject.FindGameObjectWithTag("EffectLight").GetComponent<EffectLight>();
         notification = Resources.FindObjectsOfTypeAll<Notification>()[0];
     }
     public void setNumberOfColors(int colors)

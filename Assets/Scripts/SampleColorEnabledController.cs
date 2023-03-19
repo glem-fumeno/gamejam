@@ -90,17 +90,18 @@ public class SampleColorEnabledController : MonoBehaviour
             Rigidbody2D rb2d = GetComponentInParent<Rigidbody2D>();
             if (platform != null)
                 platform.enabled = false;
-            if (platform != null && rb2d != null)
+            if (rb2d != null)
                 rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
             touching = false;
         }
         else if (color == Color.green)
         {
             Debug.Log("Green");
-            MovingPlatform rb2d = GetComponentInParent<MovingPlatform>();
+            //MovingPlatform rb2d = GetComponentInParent<MovingPlatform>();
             Rigidbody2D platformRigidbody2D = GetComponentInParent<Rigidbody2D>();
-            if (rb2d != null && !rb2d.enabled && platformRigidbody2D != null && !touching)
+            if (platformRigidbody2D != null && !touching)
             {
+                //if(rb2d != null && !rb2d.enabled)
                 platformRigidbody2D.constraints = RigidbodyConstraints2D.None;
                 platformRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
                 platformRigidbody2D.velocity = Vector2.up * 0.5f;
@@ -137,7 +138,7 @@ public class SampleColorEnabledController : MonoBehaviour
             Debug.Log("Cyan");
             MovingPlatform rb2d = GetComponentInParent<MovingPlatform>();
             Rigidbody2D platformRigidbody2D = GetComponentInParent<Rigidbody2D>();
-            if (rb2d != null && !rb2d.enabled && platformRigidbody2D != null && !touching)
+            if (platformRigidbody2D != null && !touching)
             {
                 platformRigidbody2D.constraints = RigidbodyConstraints2D.None;
                 platformRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -149,10 +150,8 @@ public class SampleColorEnabledController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("some collision");
         if(col.gameObject.layer == LayerMask.NameToLayer("Ignore Raycast"))
             return;
-        Debug.Log("collision serious");
         Rigidbody2D platformRigidbody2D = GetComponentInParent<Rigidbody2D>();
         touching = true;
         if (platformRigidbody2D != null)
