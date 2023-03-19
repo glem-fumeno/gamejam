@@ -74,6 +74,8 @@ public class SettingsManager : MonoBehaviour
     {
         Fullscreen = !Fullscreen;
         onChange();
+        if (Screen.fullScreen != Fullscreen)
+            Screen.fullScreen = Fullscreen;
     }
 
     private class Settings
