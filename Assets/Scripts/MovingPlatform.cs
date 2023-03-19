@@ -53,6 +53,7 @@ public class MovingPlatform : MonoBehaviour
             onPlatform = false;
             other.transform.SetParent(null);
             other.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            DontDestroyOnLoad(other.gameObject);
         }
     }
 }

@@ -358,6 +358,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 662898708137270240, guid: eb6f25b79070780cfac5e8790774c2f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662898708137270240, guid: eb6f25b79070780cfac5e8790774c2f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 733027416594406633, guid: eb6f25b79070780cfac5e8790774c2f0, type: 3}
       propertyPath: m_Name
       value: MovingPlatformSmall
@@ -405,6 +413,14 @@ PrefabInstance:
     - target: {fileID: 733027416594406634, guid: eb6f25b79070780cfac5e8790774c2f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886868084259133423, guid: eb6f25b79070780cfac5e8790774c2f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886868084259133423, guid: eb6f25b79070780cfac5e8790774c2f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6f25b79070780cfac5e8790774c2f0, type: 3}
@@ -541,21 +557,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 552660371971148153, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
+      propertyPath: LevelName
+      value: StartRoom
+      objectReference: {fileID: 0}
     - target: {fileID: 5090844519599602931, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
       propertyPath: LevelName
       value: BlueWand
       objectReference: {fileID: 0}
-    - target: {fileID: 5090844519599602931, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
-      propertyPath: TransportPosition.x
-      value: -1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5090844519599602931, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
-      propertyPath: TransportPosition.y
-      value: -5.25
-      objectReference: {fileID: 0}
     - target: {fileID: 6058480452105627722, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
       propertyPath: LevelName
-      value: StartRoom
+      value: FinalBoss
       objectReference: {fileID: 0}
     - target: {fileID: 6058480452105627722, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
       propertyPath: TransportPosition.x

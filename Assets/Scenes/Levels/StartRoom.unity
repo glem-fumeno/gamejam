@@ -472,6 +472,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6058480452105627722, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
+      propertyPath: LevelName
+      value: MovementBasics
+      objectReference: {fileID: 0}
     - target: {fileID: 6947667699000013717, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
       propertyPath: m_Name
       value: LevelTransitions
@@ -523,18 +527,6 @@ PrefabInstance:
     - target: {fileID: 6947667699094098843, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
       propertyPath: LevelName
       value: MovementBasics
-      objectReference: {fileID: 0}
-    - target: {fileID: 7394146057959282754, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
-      propertyPath: LevelName
-      value: MovementBasics
-      objectReference: {fileID: 0}
-    - target: {fileID: 7394146057959282754, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
-      propertyPath: TransportPosition.x
-      value: -9.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7394146057959282754, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
-      propertyPath: TransportPosition.y
-      value: -4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
