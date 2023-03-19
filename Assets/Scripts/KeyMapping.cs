@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -80,8 +84,16 @@ public class KeyMapping : MonoBehaviour
         keys[key_index].key_text.text = "";
         backBehaviour.enabled = false;
     }
+
+    private bool _firstRead = true;
+    private Key[] _tempKeys;
     public KeyCode getKeyCode(string behaviour)
     {
+        if (_firstRead)
+        {
+            _firstRead = false;
+            keys = _tempKeys;
+        }
         foreach (Key key in keys)
         {
             if(key.key_name == behaviour)
@@ -109,5 +121,37 @@ public class KeyMapping : MonoBehaviour
                 backBehaviour.enabled = true;
             }
         }
+    }
+
+    private const string KeyMappingPath = "keys.json";
+
+    public void Persist()
+    {
+        Debug.Log("Saving key mapping...");
+        var mapping = new KeyMappingData
+        {
+            mapping = keys.Select((k, i) => (i, (k.key_code, k.key_name))).ToDictionary(x => x.i, x => x.Item2)
+        };
+        SaveManager.Save(KeyMappingPath, mapping);
+    }
+
+    private struct KeyMappingData
+    {
+        [CanBeNull] public Dictionary<int, (KeyCode Code, string Name)> mapping;
+    }
+
+    private void Awake()
+    {
+        Debug.Log("Loading key mapping...");
+        var mapping = SaveManager.Load<KeyMappingData>(KeyMappingPath);
+        if (mapping.mapping is null) return;
+        var internalKeys = keys.ToArray();
+        foreach (var (idx, (code, keyName)) in mapping.mapping)
+        {
+            internalKeys[idx].key_code = code;
+            internalKeys[idx].key_name = keyName;
+            internalKeys[idx].key_text.text = keyNameMapping[code];
+        }
+        _tempKeys = internalKeys;
     }
 }
