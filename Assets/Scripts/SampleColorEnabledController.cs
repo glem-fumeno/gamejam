@@ -150,10 +150,8 @@ public class SampleColorEnabledController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("some collision");
         if(col.gameObject.layer == LayerMask.NameToLayer("Ignore Raycast"))
             return;
-        Debug.Log("collision serious");
         Rigidbody2D platformRigidbody2D = GetComponentInParent<Rigidbody2D>();
         touching = true;
         if (platformRigidbody2D != null)
