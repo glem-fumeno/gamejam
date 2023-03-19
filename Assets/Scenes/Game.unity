@@ -2429,6 +2429,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3865349687265966234, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
+      propertyPath: wand
+      value: 
+      objectReference: {fileID: 1666551044}
+    - target: {fileID: 3865349687265966234, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: lightRef
       value: 
       objectReference: {fileID: 1939148181}
@@ -3007,8 +3011,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -958616583
+  m_SortingLayer: 4
   m_SortingOrder: 9
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -3542,7 +3546,6 @@ MonoBehaviour:
   groundDetector: {fileID: 793270517}
   jumpTime: 0.23
   animator: {fileID: 650463834}
-  keyMapping: {fileID: 2020226310}
   isMoving: 0
 --- !u!50 &1939148184
 Rigidbody2D:
@@ -3923,14 +3926,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6360860493931137994, guid: 66e138e219134ca41afc3a0179207348, type: 3}
   m_PrefabInstance: {fileID: 954724627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2020226310 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5427084067224009700, guid: 66e138e219134ca41afc3a0179207348, type: 3}
-  m_PrefabInstance: {fileID: 954724627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020226308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d148615ba454f2639467232d7b6a41c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -2268,6 +2268,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3865349687265966234, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
+      propertyPath: wand
+      value: 
+      objectReference: {fileID: 535004040}
+    - target: {fileID: 3865349687265966234, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: lightRef
       value: 
       objectReference: {fileID: 1358999024}
@@ -4184,7 +4188,6 @@ MonoBehaviour:
   groundDetector: {fileID: 478399767}
   jumpTime: 0.23
   animator: {fileID: 341539829}
-  keyMapping: {fileID: 1013525527}
   isMoving: 0
 --- !u!50 &1358999027
 Rigidbody2D:

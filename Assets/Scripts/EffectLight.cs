@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EffectLight : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EffectLight : MonoBehaviour
 
     [SerializeField] private int maxLights = 2;
     private int _currentLights = 0;
+    public WandSpriteController wand;
     public void SetMaxLights(int lights){
         maxLights = lights;
     }
@@ -21,13 +23,18 @@ public class EffectLight : MonoBehaviour
     private void Start()
     {
         spriteRef = GetComponent<SpriteRenderer>();
+        if(maxLights == 0)
+            wand.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         if(Time.timeScale == 0f)
             return;
         // Stick the position to the mouse cursor
+        if(maxLights > 0)
+            wand.gameObject.SetActive(true);
         if (cameraRef != null)
         {
             Vector2 mousePosition = cameraRef.ScreenToWorldPoint(Input.mousePosition);
@@ -54,5 +61,15 @@ public class EffectLight : MonoBehaviour
             _currentLights = 0;
         }
         
+    }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        for (int i = 0; i < _currentLights; i++)
+        {
+            Destroy(_staticLigts[i]);
+        }
+        _staticLigts.Clear();
+        _currentLights = 0;
     }
 }

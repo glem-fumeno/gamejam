@@ -56,11 +56,19 @@ public class SettingsManager : MonoBehaviour
     {
         SoundActive = !SoundActive;
         onChange();
+        if(!SoundActive)
+            AudioListener.volume = 0;
+        else
+            AudioListener.volume = SoundScrollbar.value;
     }
     public void ToggleMusicActive()
     {
         MusicActive = !MusicActive;
         onChange();
+        if(!MusicActive)
+            MusicSource.volume = 0;
+        else
+            MusicSource.volume = MusicScrollbar.value;
     }
     public void ToggleFullscreen()
     {

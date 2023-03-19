@@ -83,6 +83,7 @@ public class SampleColorEnabledController : MonoBehaviour
         if (color == Color.red)
         {
             Debug.Log("Red");
+            Destroy(gameObject.transform.parent.gameObject);
         }
         else if (color == Color.blue)
         {
@@ -116,8 +117,11 @@ public class SampleColorEnabledController : MonoBehaviour
                 platform.enabled = true;
             if(platform != null && rb2d != null)
             {
-                platform.startPosition.y = transform.position.y;
-                platform.endPosition.y = transform.position.y;
+                if (platform.startPosition.y == platform.endPosition.y)
+                {
+                    platform.startPosition.y = transform.position.y;
+                    platform.endPosition.y = transform.position.y;
+                }
                 rb2d.constraints = RigidbodyConstraints2D.None;
                 rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
                 rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -159,6 +163,7 @@ public class SampleColorEnabledController : MonoBehaviour
             platformRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
             platformRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
             platformRigidbody2D.velocity = Vector2.zero;
+            touching = false;
         }
     }
 
