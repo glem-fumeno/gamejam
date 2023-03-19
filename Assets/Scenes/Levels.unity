@@ -492,7 +492,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198126460}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5059413ec429c4507bb7bca2286fad19, type: 3}
@@ -3037,6 +3037,10 @@ PrefabInstance:
       propertyPath: Menu
       value: 
       objectReference: {fileID: 833081949}
+    - target: {fileID: 8203997794216472441, guid: 66e138e219134ca41afc3a0179207348, type: 3}
+      propertyPath: MusicSource
+      value: 
+      objectReference: {fileID: 198126465}
     - target: {fileID: 8203997794216472442, guid: 66e138e219134ca41afc3a0179207348, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5683,7 +5687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3786881132906616556, guid: a91cec08fafe1d6b7a8c55b21ff66693, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3786881132906616556, guid: a91cec08fafe1d6b7a8c55b21ff66693, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[4].m_Mode

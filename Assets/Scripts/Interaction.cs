@@ -16,7 +16,7 @@ public class Interaction : MonoBehaviour
     void Start(){
         mapping = Resources.FindObjectsOfTypeAll<KeyMapping>()[0];
         player = Resources.FindObjectsOfTypeAll<CharacterLightController>()[0];
-        lightbulb = Resources.FindObjectsOfTypeAll<EffectLight>()[0];
+        lightbulb = GameObject.FindGameObjectWithTag("EffectLight").GetComponent<EffectLight>();
         notification = Resources.FindObjectsOfTypeAll<Notification>()[0];
     }
     public void setNumberOfColors(int colors)

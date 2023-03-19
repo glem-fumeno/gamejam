@@ -2435,7 +2435,7 @@ PrefabInstance:
     - target: {fileID: 3865349687265966234, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: cameraRef
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1961457858}
     - target: {fileID: 3865349687265966234, guid: 48c073b6b19ce69428c143d05daf9c78, type: 3}
       propertyPath: maxLights
       value: 0
@@ -3543,6 +3543,7 @@ MonoBehaviour:
   jumpTime: 0.23
   animator: {fileID: 650463834}
   keyMapping: {fileID: 2020226310}
+  isMoving: 0
 --- !u!50 &1939148184
 Rigidbody2D:
   serializedVersion: 4
