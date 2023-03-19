@@ -26,6 +26,18 @@ public class SettingsManager : MonoBehaviour
     public AudioSource MusicSource;
     void Start(){
         MusicSource = Camera.main.GetComponent<AudioSource>();
+
+        var settings = SaveManager.Load<Settings>(SettingsFile);
+        if (settings == null)
+        {
+            return;
+        }
+        SoundActive = settings.SoundActive;
+        MusicActive = settings.MusicActive;
+        Fullscreen = settings.Fullscreen;
+        SoundScrollbar.value = settings.SoundVolume;
+        MusicScrollbar.value = settings.MusicVolume;
+        onChange();
     }
 
     public void onChange(){
@@ -78,20 +90,5 @@ public class SettingsManager : MonoBehaviour
             MusicVolume = MusicScrollbar.value
         };
         SaveManager.Save(SettingsFile, settings);
-    }
-
-    private void Awake()
-    {
-        var settings = SaveManager.Load<Settings>(SettingsFile);
-        if (settings == null)
-        {
-            return;
-        }
-        SoundActive = settings.SoundActive;
-        MusicActive = settings.MusicActive;
-        Fullscreen = settings.Fullscreen;
-        SoundScrollbar.value = settings.SoundVolume;
-        MusicScrollbar.value = settings.MusicVolume;
-        onChange();
     }
 }

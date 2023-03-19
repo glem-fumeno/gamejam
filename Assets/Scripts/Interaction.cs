@@ -13,7 +13,6 @@ public class Interaction : MonoBehaviour
     private EffectLight lightbulb; // Nie pytaj xD
     private Notification notification;
     void Start(){
-        mapping = Resources.FindObjectsOfTypeAll<KeyMapping>()[0];
         player = Resources.FindObjectsOfTypeAll<CharacterLightController>()[0];
         lightbulb = Resources.FindObjectsOfTypeAll<EffectLight>()[0];
         notification = Resources.FindObjectsOfTypeAll<Notification>()[0];
