@@ -42,10 +42,8 @@ public class EffectLight : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Right click");
             for (int i = 0; i < _currentLights; i++)
             {
-                Debug.Log("Destroying light" + i);
                 Destroy(_staticLigts[i]);
             }
             _staticLigts.Clear();

@@ -14,10 +14,31 @@ public class SampleColorEnabledController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (!colorDetector.isColorDetected) return;
-        foreach (var spriteRenderer in _spriteRenderers)
+        if (Input.GetMouseButtonDown(1))
         {
-            spriteRenderer.color = CharacterLightController.CurrentColor;
+            foreach (var spriteRenderer in _spriteRenderers)
+            {
+                spriteRenderer.color = Color.white;
+            }
+
+            colorDetector.amountDetected = 0;
         }
+        if (!colorDetector.isColorDetected || CharacterLightController.CurrentColor == _spriteRenderers[0].color) return;
+        if (colorDetector.amountDetected == 2)
+        {
+            foreach (var spriteRenderer in _spriteRenderers)
+            {
+                spriteRenderer.color = CharacterLightController.CurrentColor;
+            }
+        }
+        else
+        {
+            foreach (var spriteRenderer in _spriteRenderers)
+            {
+                spriteRenderer.color += CharacterLightController.CurrentColor;
+            }
+
+        }
+        colorDetector.isColorDetected = false;
     }
 }
