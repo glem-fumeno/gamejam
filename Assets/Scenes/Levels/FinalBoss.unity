@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1528040018420419757, guid: a871438fa18f633f29677fe0d1be3ca9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1528040018420419757, guid: a871438fa18f633f29677fe0d1be3ca9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -187,9 +187,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5090844519599602931, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
+    - target: {fileID: 552660371971148153, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
       propertyPath: LevelName
       value: MovementBasics
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090844519599602931, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
+      propertyPath: LevelName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6947667699000013717, guid: 86f31fb10405f98f0b0394e2a54bddc8, type: 3}
       propertyPath: m_Name
