@@ -5,11 +5,13 @@ using UnityEngine.Events;
 
 public class Interaction : MonoBehaviour
 {
-    public GameObject Key;
+    //public GameObject Key;
     private GameObject _key;
     public KeyMapping mapping;
     public UnityEvent onInteract;
-    private void Update(){
+    private void Update()
+    {
+        _key = transform.GetChild(0).gameObject;
         if(_key == null) return;
         if(!Input.GetKeyDown(mapping.getKeyCode("Interact"))) return;
         // Debug.Log("Interaction");
@@ -20,13 +22,13 @@ public class Interaction : MonoBehaviour
         if (!other.gameObject.CompareTag("GameController")) return;
         Vector2 pos = transform.position;
         pos.y += 1;
-        _key = Instantiate(Key, pos, Quaternion.identity);
+        _key.SetActive(true);
         _key.GetComponentInChildren<Transform>().GetComponentInChildren<TMPro.TextMeshProUGUI>().text = mapping.keyNameMapping[mapping.getKeyCode("Interact")];
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag("GameController")) return;
-        Destroy(_key);
+        _key.SetActive(false);
     }
 }

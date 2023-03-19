@@ -23,6 +23,7 @@ public class CharacterControler : MonoBehaviour
     public KeyMapping keyMapping;
     
     private int _wallIndicator = 0;
+    [HideInInspector]public bool isMoving = false;
 
 
     private void Start()
@@ -85,9 +86,18 @@ public class CharacterControler : MonoBehaviour
 
     private void Move()
     {
+        _playerRigidbody.bodyType = RigidbodyType2D.Dynamic;
         int left = Input.GetKey(keyMapping.getKeyCode("Left")) ? 1 : 0;
         int right = Input.GetKey(keyMapping.getKeyCode("Right")) ? 1 : 0;
         float horizontalInput = right - left;
+        if(horizontalInput != 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
         if (_wallIndicator * transform.localScale.x == horizontalInput)
         {
             
