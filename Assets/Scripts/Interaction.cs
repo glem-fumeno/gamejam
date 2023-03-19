@@ -7,11 +7,10 @@ public class Interaction : MonoBehaviour
 {
     public GameObject Key;
     private GameObject _key;
-    public KeyMapping mapping;
     public UnityEvent onInteract;
     private void Update(){
         if(_key == null) return;
-        if(!Input.GetKeyDown(mapping.getKeyCode("Interact"))) return;
+        if (!InputManager.Instance.GetKeyDown(InputAction.Interact)) return;
         // Debug.Log("Interaction");
         onInteract.Invoke();
     }
@@ -21,7 +20,8 @@ public class Interaction : MonoBehaviour
         Vector2 pos = transform.position;
         pos.y += 1;
         _key = Instantiate(Key, pos, Quaternion.identity);
-        _key.GetComponentInChildren<Transform>().GetComponentInChildren<TMPro.TextMeshProUGUI>().text = mapping.keyNameMapping[mapping.getKeyCode("Interact")];
+        _key.GetComponentInChildren<Transform>().GetComponentInChildren<TMPro.TextMeshProUGUI>().text =
+            InputManager.Instance.GetKeyDisplayName(InputAction.Interact);
     }
 
     private void OnTriggerExit2D(Collider2D other)

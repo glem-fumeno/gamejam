@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 2125452396940837408}
   - component: {fileID: 756892949218989804}
   - component: {fileID: 7986310044264559892}
+  - component: {fileID: 2001405541}
   m_Layer: 5
   m_Name: Key
   m_TagString: Untagged
@@ -259,16 +260,29 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5427084067224009700}
         m_TargetAssemblyTypeName: KeyMapping, Assembly-CSharp
-        m_MethodName: setKey
-        m_Mode: 3
+        m_MethodName: SetKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_ObjectArgument: {fileID: 2001405541}
+          m_ObjectArgumentAssemblyTypeName: Utils.InputActionComponent, Assembly-CSharp
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2001405541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377451185983287193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a64e696246e49c98a9bfa987f16246b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: 2
 --- !u!1 &2576070769847513177
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +430,7 @@ GameObject:
   - component: {fileID: 8986313905968004335}
   - component: {fileID: 1666533761957780488}
   - component: {fileID: 2715772556785978333}
+  - component: {fileID: 1185631901}
   m_Layer: 5
   m_Name: Key
   m_TagString: Untagged
@@ -528,16 +543,29 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5427084067224009700}
         m_TargetAssemblyTypeName: KeyMapping, Assembly-CSharp
-        m_MethodName: setKey
-        m_Mode: 3
+        m_MethodName: SetKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1185631901}
+          m_ObjectArgumentAssemblyTypeName: Utils.InputActionComponent, Assembly-CSharp
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1185631901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823129649171438336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a64e696246e49c98a9bfa987f16246b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: 1
 --- !u!1 &3100376374783678606
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &949421544544695419
 RectTransform:
   m_ObjectHideFlags: 0
@@ -701,9 +729,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5427084067224009700}
-        m_TargetAssemblyTypeName: KeyMapping, Assembly-CSharp
-        m_MethodName: Persist
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -874,6 +902,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 6360860493931137994}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -898,6 +938,7 @@ GameObject:
   - component: {fileID: 8752070078687623667}
   - component: {fileID: 3656935070187331761}
   - component: {fileID: 7225437055712631394}
+  - component: {fileID: 1185631902}
   m_Layer: 5
   m_Name: Key
   m_TagString: Untagged
@@ -1010,16 +1051,29 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5427084067224009700}
         m_TargetAssemblyTypeName: KeyMapping, Assembly-CSharp
-        m_MethodName: setKey
-        m_Mode: 3
+        m_MethodName: SetKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1185631902}
+          m_ObjectArgumentAssemblyTypeName: Utils.InputActionComponent, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1185631902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836204611637955098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a64e696246e49c98a9bfa987f16246b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: 0
 --- !u!1 &3971987521583035155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,7 +1706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &61163606096411959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1691,19 +1745,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keys:
-  - key_code: 97
-    key_name: Left
-    key_text: {fileID: 4566150768744570678}
-  - key_code: 100
-    key_name: Right
-    key_text: {fileID: 7888533571507194799}
-  - key_code: 32
-    key_name: Jump
-    key_text: {fileID: 4162851115208325227}
-  - key_code: 101
-    key_name: Interact
-    key_text: {fileID: 6472985881166953689}
-  backBehaviour: {fileID: 0}
+  - inputAction: 0
+    text: {fileID: 4566150768744570678}
+  - inputAction: 1
+    text: {fileID: 7888533571507194799}
+  - inputAction: 2
+    text: {fileID: 4162851115208325227}
+  - inputAction: 3
+    text: {fileID: 6472985881166953689}
+  backBehaviour: {fileID: 7210222864145378346}
 --- !u!1 &6377569751036840666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +1901,7 @@ GameObject:
   - component: {fileID: 5745258140886842093}
   - component: {fileID: 5229766950555132488}
   - component: {fileID: 6109957884384709236}
+  - component: {fileID: 1185631900}
   m_Layer: 5
   m_Name: Key
   m_TagString: Untagged
@@ -1963,16 +2014,29 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5427084067224009700}
         m_TargetAssemblyTypeName: KeyMapping, Assembly-CSharp
-        m_MethodName: setKey
-        m_Mode: 3
+        m_MethodName: SetKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1185631900}
+          m_ObjectArgumentAssemblyTypeName: Utils.InputActionComponent, Assembly-CSharp
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1185631900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7012282182697198551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a64e696246e49c98a9bfa987f16246b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: 0
 --- !u!1 &7175502940554937149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,6 +2208,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8203997792405647423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,8 +2290,8 @@ RectTransform:
   m_Father: {fileID: 8203997792405647420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 203, y: 203}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2382,6 +2458,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4977185005085971777}
         m_TargetAssemblyTypeName: BackBehaviour, Assembly-CSharp
         m_MethodName: goBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2705,6 +2793,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8203997794216472441}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
         m_MethodName: ToggleFullscreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3273,6 +3373,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8203997794108884585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,8 +3418,8 @@ RectTransform:
   m_Father: {fileID: 8203997793448431537}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 203, y: 203}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3595,6 +3707,7 @@ MonoBehaviour:
   FullscreenButton: {fileID: 8203997793462016744}
   Checkmark: {fileID: 21300000, guid: 8f913d1dbd6a1c2bc960e6e2e0841c2c, type: 3}
   Menu: {fileID: 0}
+  MusicSource: {fileID: 0}
 --- !u!1 &8203997794262996159
 GameObject:
   m_ObjectHideFlags: 0

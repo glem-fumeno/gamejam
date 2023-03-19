@@ -20,8 +20,7 @@ public class CharacterControler : MonoBehaviour
     private bool _jumped;
 
     public Animator animator;
-    public KeyMapping keyMapping;
-    
+
     private int _wallIndicator = 0;
     [HideInInspector]public bool isMoving = false;
 
@@ -47,13 +46,14 @@ public class CharacterControler : MonoBehaviour
         bool isGround = Grounded();
         animator.SetBool("Jumping", !isGround);
 
-        if (Input.GetKeyDown(keyMapping.getKeyCode("Jump")) && isGround)
+        if (isGround && InputManager.Instance.GetKeyDown(InputAction.MovementJump))
         {
             _jumped = true;
             jumpTimeCounter = jumpTime;
             _playerRigidbody.velocity = Vector2.up * jumpHeight;
         }
-        if(Input.GetKey(keyMapping.getKeyCode("Jump")) && _jumped)
+
+        if (_jumped && InputManager.Instance.GetKey(InputAction.MovementJump))
         {
             if(jumpTimeCounter > 0 && !ceilingDetector.IsTouchingLayers(groundMask))
             {
@@ -65,11 +65,12 @@ public class CharacterControler : MonoBehaviour
                 _jumped = false;
             }
         }
-        if(Input.GetKeyUp(keyMapping.getKeyCode("Jump")))
+
+        if (InputManager.Instance.GetKeyUp(InputAction.MovementJump))
         {
             _jumped = false;
         }
-        
+
         if (rightWallDetector.IsTouchingLayers(groundMask))
         {
             _wallIndicator = 1;
@@ -87,8 +88,8 @@ public class CharacterControler : MonoBehaviour
     private void Move()
     {
         _playerRigidbody.bodyType = RigidbodyType2D.Dynamic;
-        int left = Input.GetKey(keyMapping.getKeyCode("Left")) ? 1 : 0;
-        int right = Input.GetKey(keyMapping.getKeyCode("Right")) ? 1 : 0;
+        var left = InputManager.Instance.GetKey(InputAction.MovementLeft) ? 1 : 0;
+        var right = InputManager.Instance.GetKey(InputAction.MovementRight) ? 1 : 0;
         float horizontalInput = right - left;
         if(horizontalInput != 0)
         {
@@ -100,9 +101,9 @@ public class CharacterControler : MonoBehaviour
         }
         if (_wallIndicator * transform.localScale.x == horizontalInput)
         {
-            
+
             _playerRigidbody.velocity = new Vector2(0, _playerRigidbody.velocity.y);
-            
+
             animator.SetBool("Moving", false);
         }
         else

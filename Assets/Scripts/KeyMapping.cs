@@ -1,157 +1,66 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
-using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UI;
+using Utils;
 
 public class KeyMapping : MonoBehaviour
 {
-    [System.Serializable] public struct Key {
-        public KeyCode key_code;
-        public string key_name;
-        public TMPro.TextMeshProUGUI key_text;
+    [Serializable] public struct Key {
+        public InputAction inputAction;
+        public TMPro.TextMeshProUGUI text;
     }
     public Key[] keys;
 
-    public Dictionary<KeyCode, string> keyNameMapping  = new Dictionary<KeyCode, string>(){
-        {KeyCode.A, "A"},
-        {KeyCode.B, "B"},
-        {KeyCode.C, "C"},
-        {KeyCode.D, "D"},
-        {KeyCode.E, "E"},
-        {KeyCode.F, "F"},
-        {KeyCode.G, "G"},
-        {KeyCode.H, "H"},
-        {KeyCode.I, "I"},
-        {KeyCode.J, "J"},
-        {KeyCode.K, "K"},
-        {KeyCode.L, "L"},
-        {KeyCode.M, "M"},
-        {KeyCode.N, "N"},
-        {KeyCode.O, "O"},
-        {KeyCode.P, "P"},
-        {KeyCode.Q, "Q"},
-        {KeyCode.R, "R"},
-        {KeyCode.S, "S"},
-        {KeyCode.T, "T"},
-        {KeyCode.U, "U"},
-        {KeyCode.V, "V"},
-        {KeyCode.W, "W"},
-        {KeyCode.X, "X"},
-        {KeyCode.Y, "Y"},
-        {KeyCode.Z, "Z"},
-        {KeyCode.Alpha0, "0"},
-        {KeyCode.Alpha1, "1"},
-        {KeyCode.Alpha2, "2"},
-        {KeyCode.Alpha3, "3"},
-        {KeyCode.Alpha4, "4"},
-        {KeyCode.Alpha5, "5"},
-        {KeyCode.Alpha6, "6"},
-        {KeyCode.Alpha7, "7"},
-        {KeyCode.Alpha8, "8"},
-        {KeyCode.Alpha9, "9"},
-        {KeyCode.Space, "_"},
-        {KeyCode.LeftAlt, "Al"},
-        {KeyCode.RightAlt, "Al"},
-        {KeyCode.LeftControl, "Ct"},
-        {KeyCode.RightControl, "Ct"},
-        {KeyCode.LeftShift, "Sh"},
-        {KeyCode.RightShift, "Sh"},
-        {KeyCode.CapsLock, "CL"},
-        {KeyCode.UpArrow, "▲"},
-        {KeyCode.DownArrow, "▼"},
-        {KeyCode.LeftArrow, "◄"},
-        {KeyCode.RightArrow, "►"},
-        {KeyCode.LeftBracket, "["},
-        {KeyCode.RightBracket, "]"},
-        {KeyCode.Backslash, "\\"},
-        {KeyCode.Semicolon, ";"},
-        {KeyCode.Quote, "'"},
-        {KeyCode.Period, "."},
-        {KeyCode.Comma, ","},
-        {KeyCode.Return, "En"},
-        {KeyCode.Backspace, "←"},
-        {KeyCode.Tab, "→"},
-    };
-    private int key_index = -1;
+    private void Start()
+    {
+        if (keys.Select(x => x.inputAction).Distinct().Count() != keys.Length)
+            throw new Exception("Duplicate input actions in key mapping");
+
+        if (Enum.GetValues(typeof(InputAction)).Cast<InputAction>().Except(keys.Select(x => x.inputAction)).Any())
+            throw new Exception("Missing input actions in key mapping");
+
+        foreach (var key in keys)
+        {
+            key.text.text = InputManager.Instance.GetKeyDisplayName(key.inputAction);
+        }
+    }
+
+    private int _keyIndex = -1;
     public BackBehaviour backBehaviour;
-    public void setKey(int index)
-    {
-        key_index = index;
-        keys[key_index].key_text.text = "";
-        backBehaviour.enabled = false;
-    }
 
-    private bool _firstRead = true;
-    private Key[] _tempKeys;
-    public KeyCode getKeyCode(string behaviour)
+    public void SetKey(InputActionComponent inputActionComponent)
     {
-        if (_firstRead)
+        foreach (var key in keys)
         {
-            _firstRead = false;
-            keys = _tempKeys;
-        }
-        foreach (Key key in keys)
-        {
-            if(key.key_name == behaviour)
-                return key.key_code;
-        }
-        return KeyCode.None;
-    }
-    private void Update() {
-        if(key_index >= 0)
-        {
-            Key key = keys[key_index];
-            if(Input.GetKey(KeyCode.Escape))
-            {
-                key.key_text.text = keyNameMapping[key.key_code];
-                key_index = -1;
-                backBehaviour.enabled = true;
-            }
-            foreach(KeyValuePair<KeyCode, string> kcode in keyNameMapping)
-            {
-                if (!Input.GetKey(kcode.Key))
-                    continue;
-                keys[key_index].key_code = kcode.Key;
-                key.key_text.text = kcode.Value;
-                key_index = -1;
-                backBehaviour.enabled = true;
-            }
+            if (inputActionComponent.inputAction != key.inputAction) continue;
+            _keyIndex = Array.IndexOf(keys, key);
+            keys[_keyIndex].text.text = "";
+            backBehaviour.enabled = false;
         }
     }
 
-    private const string KeyMappingPath = "keys.json";
-
-    public void Persist()
+    private void Update()
     {
-        Debug.Log("Saving key mapping...");
-        var mapping = new KeyMappingData
+        if (_keyIndex < 0) return;
+        var key = keys[_keyIndex];
+
+        if(Input.GetKey(KeyCode.Escape)) // Not using InputManager here because it's not a keybind
         {
-            mapping = keys.Select((k, i) => (i, (k.key_code, k.key_name))).ToDictionary(x => x.i, x => x.Item2)
-        };
-        SaveManager.Save(KeyMappingPath, mapping);
-    }
-
-    private struct KeyMappingData
-    {
-        [CanBeNull] public Dictionary<int, (KeyCode Code, string Name)> mapping;
-    }
-
-    private void Awake()
-    {
-        Debug.Log("Loading key mapping...");
-        var mapping = SaveManager.Load<KeyMappingData>(KeyMappingPath);
-        if (mapping.mapping is null) return;
-        var internalKeys = keys.ToArray();
-        foreach (var (idx, (code, keyName)) in mapping.mapping)
-        {
-            internalKeys[idx].key_code = code;
-            internalKeys[idx].key_name = keyName;
-            internalKeys[idx].key_text.text = keyNameMapping[code];
+            key.text.text = InputManager.Instance.GetKeyDisplayName(key.inputAction);
+            _keyIndex = -1;
+            backBehaviour.enabled = true;
         }
-        _tempKeys = internalKeys;
+
+        if (!Input.anyKey) return;
+
+        var pressedKeys = InputManager.KeyNameMapping.Where(x => Input.GetKey(x.Key)).ToArray();
+        if (!pressedKeys.Any()) return;
+
+        var pressedKey = pressedKeys.First();
+        key.text.text = pressedKey.Value;
+        _keyIndex = -1;
+        backBehaviour.enabled = true;
+
+        InputManager.Instance.SetMapping(key.inputAction, pressedKey.Key);
     }
 }
