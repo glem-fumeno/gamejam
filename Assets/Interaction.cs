@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interaction : MonoBehaviour
 {
     public GameObject Key;
     private GameObject _key;
     public KeyMapping mapping;
-    public AudioSource audioSource;
+    public UnityEvent onInteract;
     private void Update(){
         if(_key == null) return;
         if(!Input.GetKeyDown(mapping.getKeyCode("Interact"))) return;
-        audioSource.Play();
-        Debug.Log("Interaction");
+        // Debug.Log("Interaction");
+        onInteract.Invoke();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
