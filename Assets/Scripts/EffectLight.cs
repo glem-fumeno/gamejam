@@ -13,6 +13,9 @@ public class EffectLight : MonoBehaviour
 
     [SerializeField] private int maxLights = 2;
     private int _currentLights = 0;
+    public void SetMaxLights(int lights){
+        maxLights = lights;
+    }
 
     // Update is called once per frame
     private void Start()
@@ -31,6 +34,7 @@ public class EffectLight : MonoBehaviour
             transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
             spriteRef.color = CharacterLightController.CurrentColor;
         }
+        spriteRef.enabled = _currentLights < maxLights;
 
         if (Input.GetMouseButtonDown(0) && _currentLights < maxLights)
         {

@@ -1648,7 +1648,7 @@ GameObject:
   - component: {fileID: 5427084067224009700}
   m_Layer: 5
   m_Name: Mapping
-  m_TagString: Untagged
+  m_TagString: Mapping
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3595,6 +3595,7 @@ MonoBehaviour:
   FullscreenButton: {fileID: 8203997793462016744}
   Checkmark: {fileID: 21300000, guid: 8f913d1dbd6a1c2bc960e6e2e0841c2c, type: 3}
   Menu: {fileID: 0}
+  MusicSource: {fileID: 0}
 --- !u!1 &8203997794262996159
 GameObject:
   m_ObjectHideFlags: 0

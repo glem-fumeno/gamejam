@@ -23,14 +23,20 @@ public class SettingsManager : MonoBehaviour
     public Image FullscreenButton;
     public Sprite Checkmark;
     public MenuManager Menu;
+    public AudioSource MusicSource;
+    void Start(){
+        MusicSource = Camera.main.GetComponent<AudioSource>();
+    }
 
     public void onChange(){
         MusicButton.sprite = MusicActive ? MusicOn : MusicOff;
         MusicButton.SetNativeSize();
         MusicValue.text = Mathf.CeilToInt(MusicScrollbar.value * 100).ToString();
+        MusicSource.volume = MusicScrollbar.value;
         SoundButton.sprite = SoundActive ? SoundOn : SoundOff;
         SoundButton.SetNativeSize();
         SoundValue.text = Mathf.CeilToInt(SoundScrollbar.value * 100).ToString();
+        AudioListener.volume = SoundScrollbar.value;
         FullscreenButton.color = Fullscreen ? Color.white : Color.clear;
     }
 
