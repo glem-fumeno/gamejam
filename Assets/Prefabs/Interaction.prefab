@@ -100,6 +100,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Key: {fileID: 5837027071040424111, guid: 1f7d621f98518b6e6a2ea55a3448078d, type: 3}
   mapping: {fileID: 0}
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3786881132906616556}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!58 &3786881132906616563
 CircleCollider2D:
   m_ObjectHideFlags: 0

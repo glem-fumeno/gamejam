@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EffectLight
   - Environment
+  - Mapping
   layers:
   - Default
   - TransparentFX

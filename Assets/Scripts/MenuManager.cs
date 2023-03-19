@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
         gameObject.SetActive(false);
     }
     public void Menu(){
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
     public void Quit(){
         Debug.Log("Quitting");
