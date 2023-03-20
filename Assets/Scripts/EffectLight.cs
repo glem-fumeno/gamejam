@@ -15,6 +15,7 @@ public class EffectLight : MonoBehaviour
     [SerializeField] private int maxLights = 2;
     private int _currentLights = 0;
     public WandSpriteController wand;
+    private AudioSource audioSource;
     public void SetMaxLights(int lights){
         maxLights = lights;
     }
@@ -23,6 +24,7 @@ public class EffectLight : MonoBehaviour
     private void Start()
     {
         spriteRef = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         if(maxLights == 0)
             wand.gameObject.SetActive(false);
     }
@@ -33,6 +35,8 @@ public class EffectLight : MonoBehaviour
         if(Time.timeScale == 0f)
             return;
         // Stick the position to the mouse cursor
+        if(SceneManager.GetActiveScene().name == "EndGame")
+            return;
         if(maxLights > 0)
             wand.gameObject.SetActive(true);
         if (cameraRef != null)
@@ -49,6 +53,7 @@ public class EffectLight : MonoBehaviour
             light.GetComponent<SpriteRenderer>().color = CharacterLightController.CurrentColor;
             _staticLigts.Add(light); 
             _currentLights++;
+            audioSource.Play();
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -56,6 +61,7 @@ public class EffectLight : MonoBehaviour
             for (int i = 0; i < _currentLights; i++)
             {
                 Destroy(_staticLigts[i]);
+                audioSource.Play();
             }
             _staticLigts.Clear();
             _currentLights = 0;

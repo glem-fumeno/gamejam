@@ -12,8 +12,15 @@ public class Interaction : MonoBehaviour
     private CharacterLightController player;
     private EffectLight lightbulb; // Nie pytaj xD
     private Notification notification;
+    private SpriteRenderer spriteRenderer;
+    public int pickupIndex;
     void Start(){
         player = Resources.FindObjectsOfTypeAll<CharacterLightController>()[0];
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if(player.pickups[pickupIndex]) {
+            spriteRenderer.enabled = false;
+            return;
+        };
         lightbulb = GameObject.FindGameObjectWithTag("EffectLight").GetComponent<EffectLight>();
         notification = Resources.FindObjectsOfTypeAll<Notification>()[0];
     }
@@ -41,13 +48,18 @@ public class Interaction : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
     private void Update(){
+        if(player.pickups[pickupIndex]) return;
         if(_key == null) return;
         if (!InputManager.Instance.GetKeyDown(InputAction.Interact)) return;
         // Debug.Log("Interaction");
         onInteract.Invoke();
+        spriteRenderer.enabled = false;
+        _key.SetActive(false);
+        player.pickups[pickupIndex] = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(player.pickups[pickupIndex]) return;
         if (!other.gameObject.CompareTag("GameController")) return;
         Vector2 pos = transform.position;
         pos.y += 1;
@@ -58,6 +70,7 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if(player.pickups[pickupIndex]) return;
         if (!other.gameObject.CompareTag("GameController")) return;
         Destroy(_key);
     }

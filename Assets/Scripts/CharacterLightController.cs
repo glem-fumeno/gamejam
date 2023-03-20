@@ -17,6 +17,7 @@ public class CharacterLightController : MonoBehaviour
 
     private float _lerpTemp = 0f;
     private const float LerpTime = 0.1f;
+    public bool[] pickups;
 
     // Update is called once per frame
     private void Update()
