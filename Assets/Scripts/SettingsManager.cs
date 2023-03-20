@@ -24,6 +24,7 @@ public class SettingsManager : MonoBehaviour
     public Sprite Checkmark;
     public MenuManager Menu;
     public AudioSource MusicSource;
+
     void Start(){
         MusicSource = Camera.main.GetComponent<AudioSource>();
 
@@ -44,11 +45,11 @@ public class SettingsManager : MonoBehaviour
         MusicButton.sprite = MusicActive ? MusicOn : MusicOff;
         MusicButton.SetNativeSize();
         MusicValue.text = Mathf.CeilToInt(MusicScrollbar.value * 100).ToString();
-        MusicSource.volume = MusicScrollbar.value;
+        MusicSource.volume = MusicActive ? MusicScrollbar.value : 0;
         SoundButton.sprite = SoundActive ? SoundOn : SoundOff;
         SoundButton.SetNativeSize();
         SoundValue.text = Mathf.CeilToInt(SoundScrollbar.value * 100).ToString();
-        AudioListener.volume = SoundScrollbar.value;
+        AudioListener.volume = SoundActive ? SoundScrollbar.value : 0;
         FullscreenButton.color = Fullscreen ? Color.white : Color.clear;
     }
 
@@ -56,8 +57,10 @@ public class SettingsManager : MonoBehaviour
     {
         SoundActive = !SoundActive;
         onChange();
-        if(!SoundActive)
+        if (!SoundActive)
+        {
             AudioListener.volume = 0;
+        }
         else
             AudioListener.volume = SoundScrollbar.value;
     }
@@ -78,7 +81,7 @@ public class SettingsManager : MonoBehaviour
             Screen.fullScreen = Fullscreen;
     }
 
-    private class Settings
+    public class Settings
     {
         public bool SoundActive;
         public bool MusicActive;
@@ -87,7 +90,7 @@ public class SettingsManager : MonoBehaviour
         public float MusicVolume;
     }
 
-    private const string SettingsFile = "settings.json";
+    public const string SettingsFile = "settings.json";
 
     public void Persist()
     {
