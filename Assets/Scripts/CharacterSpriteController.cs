@@ -8,6 +8,7 @@ public class CharacterSpriteController : MonoBehaviour
     public Camera cam;
     private Vector2 _mousePos;
     public MenuManager menu;
+    public string loaded_platform;
     void Start()
     {
         _transform = GetComponent<Transform>();

@@ -73,6 +73,9 @@ public class CharacterControler : MonoBehaviour
 
         if(InputManager.Instance.GetKeyDown(InputAction.Reset))
         {
+            if(gameObject.transform.parent != null)
+                transform.SetParent(null);
+            DontDestroyOnLoad(gameObject);
             LoadScene(SceneManager.GetActiveScene().name);
         }
 
