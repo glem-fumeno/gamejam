@@ -49,6 +49,20 @@ public class CharacterControler : MonoBehaviour
 //     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 //         Input.ResetInputAxes();
 //   }
+    public static void LoadScene( string SceneNameToLoad)
+    {
+        PendingPreviousScene = SceneManager.GetActiveScene().name;
+        SceneManager.sceneLoaded += ActivatorAndUnloader;
+        SceneManager.LoadScene( SceneNameToLoad, LoadSceneMode.Additive);
+    }
+ 
+    static string PendingPreviousScene;
+    static void ActivatorAndUnloader( Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= ActivatorAndUnloader;
+        SceneManager.SetActiveScene( scene);
+        SceneManager.UnloadSceneAsync( PendingPreviousScene);
+    }
 
     void Update()
     {
@@ -56,6 +70,11 @@ public class CharacterControler : MonoBehaviour
 
         bool isGround = Grounded();
         animator.SetBool("Jumping", !isGround);
+
+        if(InputManager.Instance.GetKeyDown(InputAction.Reset))
+        {
+            LoadScene(SceneManager.GetActiveScene().name);
+        }
 
         if (isGround && InputManager.Instance.GetKeyDown(InputAction.MovementJump))
         {

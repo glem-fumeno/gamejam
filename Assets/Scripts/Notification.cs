@@ -18,6 +18,9 @@ public class Notification : MonoBehaviour
         gameObject.SetActive(true);
         StartCoroutine(HideAfterDelay());
     }
+    private void Start(){
+        StartCoroutine(HideAfterDelay());
+    }
     IEnumerator HideAfterDelay(){
         yield return new WaitForSeconds(time_on_screen);
         gameObject.SetActive(false);

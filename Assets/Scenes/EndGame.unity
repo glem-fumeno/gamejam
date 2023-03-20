@@ -748,7 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Crew:'
+  m_text: 'Crew of HoldOn Studios:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4569768cf001de44b805d1d22ba9fdba, type: 2}
   m_sharedMaterial: {fileID: -7542313634339166059, guid: 4569768cf001de44b805d1d22ba9fdba, type: 2}
@@ -1368,7 +1368,14 @@ MonoBehaviour:
     Dustyroom
     - Sound FX
 
-    https://assetstore.unity.com/publishers/16150'
+    https://assetstore.unity.com/publishers/16150
+
+
+
+    Playtesting:
+
+    Alicja
+    Rosiak'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4569768cf001de44b805d1d22ba9fdba, type: 2}
   m_sharedMaterial: {fileID: -7542313634339166059, guid: 4569768cf001de44b805d1d22ba9fdba, type: 2}

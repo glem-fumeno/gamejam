@@ -8,7 +8,8 @@ public enum InputAction
     MovementLeft,
     MovementRight,
     MovementJump,
-    Interact
+    Interact,
+    Reset
 }
 
 public class InputManager : Manager<InputManager>
@@ -99,6 +100,7 @@ public class InputManager : Manager<InputManager>
             InputAction.MovementRight => KeyCode.D,
             InputAction.MovementJump => KeyCode.Space,
             InputAction.Interact => KeyCode.E,
+            InputAction.Reset => KeyCode.R,
             _ => KeyCode.None
         };
     }
