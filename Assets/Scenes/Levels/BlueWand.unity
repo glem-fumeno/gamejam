@@ -398,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3786881132906616556, guid: a91cec08fafe1d6b7a8c55b21ff66693, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_StringArgument
-      value: Freeze platforms
+      value: Place or delete by clicking left or right
       objectReference: {fileID: 0}
     - target: {fileID: 3786881132906616556, guid: a91cec08fafe1d6b7a8c55b21ff66693, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

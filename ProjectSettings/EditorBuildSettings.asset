@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/FinalBoss.unity
     guid: f429db37d4e6f86a88348322a0af1f99
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Levels/ForrestEntrance.unity
     guid: b55c68e356e555ed9b71bfb67eafe477
@@ -50,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/RedWand.unity
     guid: 4a3ed3697aa24d1869ddddf4fc60239f
+  - enabled: 0
+    path: Assets/Scenes/Levels/Sea.unity
+    guid: e1b6d9302b65cf344bdb488296ab0a28
   - enabled: 1
     path: Assets/Scenes/Levels/UV.unity
     guid: 2b6dfa3484e6d9ddf874e044d726296a
