@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -79,6 +80,9 @@ public class SettingsManager : MonoBehaviour
         onChange();
         if (Screen.fullScreen != Fullscreen)
             Screen.fullScreen = Fullscreen;
+        if (!Fullscreen) return;
+        var largestResolution = Screen.resolutions.OrderBy(x => x.width * x.height).Last();
+        Screen.SetResolution(largestResolution.width, largestResolution.height, true);
     }
 
     public class Settings
